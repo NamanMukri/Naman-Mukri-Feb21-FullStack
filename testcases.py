@@ -1,5 +1,10 @@
-people = {
-    "Austun": 8032654235,
-    "Martin": 8032658258}
-
-print(people.get("Jack", "Not Found"))
+s="aa"
+longest = -1
+visited = {}
+for i, c in enumerate(s):
+    if c in visited:
+        longest = max(longest, i - visited[c] - 1)
+    else:
+        visited[c] = i
+            
+print(longest)

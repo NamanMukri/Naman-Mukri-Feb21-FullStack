@@ -74,7 +74,46 @@
 ![](2022-02-03-15-16-45.png)
 
 # https://leetcode.com/problems/count-substrings-that-differ-by-one-character/
+    Code:
+    class Solution:
+    def countSubstrings(self, s: str, t: str) -> int:
+        ans=0
+        for i in range(len(s)):
+            for j in range(len(t)):
+                x=i
+                y=j
+                d=0
+                while x<len(s) and y<len(t):
+                    if s[x]!=t[y]:
+                        d+=1;
+                    if d==1:
+                        ans+=1
+                    elif d==2:
+                        break;
+                    x+=1
+                    y+=1
+        return ans
+
+     ScreenShot:
+![](2022-02-08-12-27-23.png)
+
 # https://leetcode.com/problems/largest-substring-between-two-equal-characters/
+    Code:
+    class Solution:
+    def maxLengthBetweenEqualCharacters(self, s: str) -> int:
+        longest = -1
+        visited = {}
+        for i, c in enumerate(s):
+            if c in visited:
+                longest = max(longest, i - visited[c] - 1)
+            else:
+                visited[c] = i
+            
+        return longest
+    Screenshot:
+![](2022-02-08-15-17-49.png)
+
+
 # https://leetcode.com/problems/maximum-repeating-substring/
 # https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/
 # https://leetcode.com/problems/determine-if-two-strings-are-close/
