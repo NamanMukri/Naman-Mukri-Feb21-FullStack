@@ -115,8 +115,53 @@
 
 
 # https://leetcode.com/problems/maximum-repeating-substring/
+    code:
+    class Solution:
+    def maxRepeating(self, sequence: str, word: str) -> int:
+        count=0
+        while True:
+            if word*count not in sequence:
+                return count-1
+            count+=1
+    ScreenShot:
+![](2022-02-09-09-20-55.png)
+
 # https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/
+    code:
+    class Solution:
+    def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
+        string1=''.join([str(item) for item in word1])
+        string2=''.join([str(item) for item in word2])
+        if string1==string2:
+            return True
+        else:
+            return False
+    Screenshot:
+![](2022-02-09-09-28-35.png)
+
 # https://leetcode.com/problems/determine-if-two-strings-are-close/
+    Code:
+    class Solution:
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        if len(word1)!=len(word2):
+            return False
+        
+        set1=set(word1)
+        set2=set(word2)
+        
+        freq1,freq2={},{}
+        
+        for char in word1:
+            freq1[char]=freq1.get(char,0)+1
+        
+        for char in word2:
+            freq2[char]=freq2.get(char,0)+1
+        if sorted(freq1.values())==sorted(freq2.values()) and sorted(set1)==sorted(set2):
+            return True
+        return False
+    Screeshot:
+![](2022-02-09-11-40-53.png)
+
 # https://leetcode.com/problems/palindrome-partitioning-iv/
 # https://leetcode.com/problems/largest-merge-of-two-strings/
 # https://leetcode.com/problems/sum-of-beauty-of-all-substrings/
